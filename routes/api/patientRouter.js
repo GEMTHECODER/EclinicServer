@@ -111,9 +111,12 @@ patientrouter.put('/patient/:id/:doctorId', async (req, res) => {
 // Get doctors of a patient {{patientId}}
 
   patientrouter.get('/:id/doctors', async (req, res) => {
-   try {
-    const doctors = await patientService.getDoctorsOfPatients(patientId);
-    res.json(doctors);
+    // getting names of doctor
+    // const doctor = await patientService.getDoctorsOfPatients( req.params.id).then(x=>x.doctors.forEach(x=>console.log(x.name)))
+    try {
+    const doctor = await patientService.getDoctorsOfPatients( req.params.id).then(x=>x.doctors.forEach(x=>console.log(x.name)))
+    console.log("hellodoc",doctor)
+    res.status(600).json(doctor);
     } catch (error) {
         console.error('Unable to fetch patient doctors:', error);
         res.status(500).json({ error: 'Unable to fetch patient doctors' });

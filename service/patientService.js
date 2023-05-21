@@ -127,19 +127,18 @@ async function addDoctorToPatient123(patientId, doctorId) {
 
 // get all doctor of the patient
   async function  getDoctorsOfPatients(patientId){
+    try{
     console.log(patientId)
-    Patient.findById(patientId)
-    .populate('doctors')
-    .exec()
-    .then((patient) => {
-                 patient;
-            })
-    .catch((error) => {
-      // Handle the error
-      throw new Error('Failed to update patient');
-    });
-  
+ return await Patient.findById(patientId).populate('doctors').exec()
+    
+  }catch{
+    throw new Error('Unable to fetch patient doctors');
   }
+
+  }
+
+  
+  
 
 //++++++++++++++++++++==nested crud operations of patient++++++++++++++++++++++++++++++++++++++//  
 
