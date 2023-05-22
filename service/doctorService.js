@@ -26,7 +26,7 @@ async function getAllDoctors() {
 
 // Create a new doctor
 async function createDoctor(doctorData) {
-  const doctor = new Doctor(doctorData);
+  const doctor = new Doctor(doctorData.data);
   await doctor.validate(); // Validate the doctor data before saving
   await doctor.save();
   return doctor;
