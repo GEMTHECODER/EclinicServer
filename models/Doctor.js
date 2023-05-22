@@ -24,8 +24,18 @@ const scheduleSchema = new mongoose.Schema({
   },
 });
 
+
 const doctorSchema = new mongoose.Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  contact: String,
+  email: String,
+  gender: String,
+  profileImage: String,
+  experience: String,
+  description: String,
   specialization: String,
   schedule: [scheduleSchema],
 });
