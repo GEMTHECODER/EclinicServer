@@ -176,10 +176,22 @@ async function createAppointment(doctorId, patientId, scheduleId) {
     return durationInHours;
   }
   
+
   
+  
+async function getAllAppointments(appointmentId) {
+  try {
+    const appointment = await Appointment.find();
+    return appointment;
+    }catch{
+              throw new Error('something went wrong upon fetching the appointment');
+    }
+  }
 
 module.exports = {
   createAppointment,
+  getAllAppointments
+
   // getAllAppointments,
   // getAppointmentById,
   // update,

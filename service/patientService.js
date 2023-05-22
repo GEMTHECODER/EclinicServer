@@ -8,6 +8,7 @@ async function createPatient(patientData) {
     try {
       const patient = await Patient.create(patientData);
       console.log('Patient created:', patient);
+      return patient;
     } catch (error) {
       console.error('Error creating patient:', error);
       throw error;

@@ -17,16 +17,16 @@ const appointmentService = require('../../service/appointmentService');
  });
  
  
-//  // Get all appointments
-//  router.get('/', async (req, res) => {
-//    try {
-//      const appointments = await appointmentService.getAllAppointments();
-//      res.json(appointments);
-//    } catch (error) {
-//      console.error('Error getting appointments:', error);
-//      res.status(500).json({ error: 'Failed to get appointments' });
-//    }
-//  });
+ // Get all appointments
+ appointmentrouter.get('/', async (req, res) => {
+   try {
+     const appointments = await appointmentService.getAllAppointments();
+     res.json(appointments);
+   } catch (error) {
+     console.error('Error getting appointments:', error);
+     res.status(500).json({ error: 'Failed to get appointments' });
+   }
+ });
  
 //  // Get an appointment by ID
 //  router.get('/:id', async (req, res) => {
